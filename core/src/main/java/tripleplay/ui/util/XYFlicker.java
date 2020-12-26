@@ -91,7 +91,7 @@ public class XYFlicker extends Pointer.Listener
         // for the purposes of capturing the event stream, dx and dy are capped by their ranges
         dx = _position.x - _origPos.x;
         dy = _position.y - _origPos.y;
-        if (dx * dx + dy * dy >= maxClickDeltaSq()) iact.capture();
+        if (!iact.captured() && dx * dx + dy * dy >= maxClickDeltaSq()) iact.capture();
     }
 
     @Override public void onEnd (Pointer.Interaction iact) {
